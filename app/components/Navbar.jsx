@@ -64,10 +64,10 @@ const Navbar = () => {
     {
       title: "Company",
       dropdown: [
-        { name: "About Us", link: "" },
-        { name: "Our Team", link: "" },
-        { name: "Careers", link: "" },
-        { name: "Contact", link: "" }
+        { name: "About Us", link: "/about" },
+        { name: "Our Team", link: "/team" },
+        { name: "Careers", link: "/careers" },
+        { name: "Contact", link: "/contact" }
       ]
     }
   ];

@@ -1,24 +1,23 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import Navbar from '../components/Navbar';
+import Testimonial from '../components/Testimonial';
+import Together from '../components/Together';
+import Footer from '../components/Footer';
 
 const Web_development = () => {
   return (
     <>
-
-
-          <Navbar />
-
-
+      <Navbar />
       <div className='Mobile-main'>
         <div className="container-services">
-          <div className="title-services">Web Apps And Websites That <br />  Make Your Brand Stand Out </div>
-          {/* <div className="subtitle-services">
+          <div className="title-services">Web Apps And Websites That <br /> Make Your Brand Stand Out </div>
+          {<div className="subtitle-services">
             Make Your Brand Stand Out
             <br />
             Check out our services below to find out how we can help you build an
             <br />
             end-to-end plan of action for your brand
-          </div> */}
+          </div> }
           <div className="featured-services">
             <p>Our work has been featured in</p>
             <div className="logos-services">
@@ -30,10 +29,11 @@ const Web_development = () => {
           </div>
         </div>
       </div>
-
-
+      <Testimonial />
+      <Together />
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Web_development
+export default Web_development;
