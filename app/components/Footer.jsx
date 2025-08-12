@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className='footer-container'>
       <div className="footer">
-        <div className="logo">CodeGlo</div>
+        <div className="logo">GoatNova Systems</div>
         <div className="review">
           REVIEWED ON <strong>Clutch</strong> <span className="stars">★★★★★</span> 6 REVIEWS
         </div>
@@ -58,7 +58,7 @@ function Footer() {
           </div>
         </div>
         <div className="copyright">
-          Copyright © 2019 CodeGlo Technologies. All rights reserved.
+          Copyright © 2019 GoatNova Systems IT Solutions All rights reserved.
         </div>
       </div>
     </div>

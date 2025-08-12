@@ -31,13 +31,13 @@ const Navbar = () => {
       dropdown: [
         { name: "Mobile App Development", link: "mobile-app-development" },
         { name: "Web Development", link: "./web-development" },
-        { name: "Blockchain Technology", link: "" },
-        { name: "Web3 Services", link: "" },
+        { name: "Artificial Intelligence (AI)", link: "" },
+        { name: "Machine Learning", link: "" },
+        { name: "Generative AI", link: "" },
+        { name: "Data Analytics", link: "" },
+        { name: "Internet of Things (IoT)", link: "" },
         { name: "ADA Compliance", link: "" },
         { name: "Digital Marketing", link: "" },
-        { name: "Online Reputation Management", link: "" },
-        { name: "Cloud Infrastructure", link: "" },
-        { name: "IT Security Services", link: "" },
         { name: "Remote Technology Staffing", link: "" }
       ]
     },
@@ -75,15 +75,15 @@ const Navbar = () => {
   return (
     <nav className={`navbar`}>
       <div className="container">
-       <div className="logo">
-  <Link href="/" onClick={closeAll}>
-    <img 
-      src="/navbar logo.png" 
-      alt="GoatNova Systems"
-      className="logo-image"
-    />
-  </Link>
-</div>
+        <div className="logo">
+          <Link href="/" onClick={closeAll}>
+            <img 
+              src="/navbar logo.png" 
+              alt="GoatNova Systems"
+              className="logo-image"
+            />
+          </Link>
+        </div>
 
         <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
           <ul className="nav-links">
