@@ -36,7 +36,6 @@ const Navbar = () => {
         { name: "Generative AI", link: "" },
         { name: "Data Analytics", link: "" },
         { name: "Internet of Things (IoT)", link: "" },
-        { name: "ADA Compliance", link: "" },
         { name: "Digital Marketing", link: "" },
         { name: "Remote Technology Staffing", link: "" }
       ]
@@ -75,6 +74,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar`}>
       <div className="container">
+        {/* Logo */}
         <div className="logo">
           <Link href="/" onClick={closeAll}>
             <img 
@@ -85,13 +85,12 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Menu */}
         <div className={`menu ${isMenuOpen ? 'open' : ''}`}>
           <ul className="nav-links">
             {navItems.map((item, index) => (
               <li key={index} className={activeDropdown === index ? 'active' : ''}>
-                {item.link ? (
-                  <Link href={item.link} onClick={closeAll}>{item.title}</Link>
-                ) : (
+                {item.dropdown ? (
                   <>
                     <button 
                       onClick={() => toggleDropdown(index)}
@@ -123,11 +122,14 @@ const Navbar = () => {
                       </div>
                     )}
                   </>
+                ) : (
+                  <Link href={item.link} onClick={closeAll}>{item.title}</Link>
                 )}
               </li>
             ))}
           </ul>
 
+          {/* User Icon */}
           <div className="user-icon">
             <ClerkProvider>
               <SignedIn>
@@ -144,6 +146,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile Menu Button */}
         <button 
           className="mobile-menu-btn" 
           onClick={toggleMenu}
