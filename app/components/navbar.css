@@ -1,0 +1,254 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* padding: 0.5rem 0; */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.logo-image {
+  /* display: block; */
+  width: 90px;
+  height: auto;
+  margin-left: -30%;
+}
+.navbar.scrolled {
+  padding: 0.8rem 0;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00e0ff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.nav-links > li > a,
+.nav-links > li > button {
+  padding: 0.8rem 1.2rem;
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links > li.active > button {
+  background-color: #00e0ff;
+  color: white;
+}
+
+.dropdown-menu {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  background-color: black;
+  color: #00e0ff;
+  z-index: 1001;
+  display: none;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown-container {
+  max-width: 1200px;
+  margin: 0 20px;
+  padding: 1rem 10px;
+  height: 50%;
+}
+
+.dropdown-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+}
+
+.nav-links > li.active .dropdown-menu {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+.dropdown-item {
+  padding: 1rem;
+  color: #00e0ff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.dropdown-item:hover {
+  background-color: #00e0ff;
+  /* padding: 10px auto; */
+  color: white;
+  transform: translateX(5px);
+}
+
+.user-icon a {
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.user-icon a:hover {
+  background-color: #f5f3ff;
+  color: #00e0ff;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4b5563;
+  z-index: 1002;
+}
+.user-icon-button{
+  color: #00e0ff;
+  font-size: 28px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    /* padding: 0px 10px; */
+    margin: 0;
+  }
+  .logo-image{
+    width: 70px;
+    margin-left: -10px;
+  }
+  .user-icon-button{
+  color: #00e0ff;
+  font-size: 28px;
+  /* text-align: left;
+  align-items: left;
+  display: flex;
+  justify-content: left; */
+}
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+    background-color: black;
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .menu.open {
+    right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .nav-links > li > a,
+  .nav-links > li > button {
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    height: auto;
+    background: transparent;
+  }
+
+  .dropdown-container {
+    padding: 0.5rem 0 0 1rem;
+  }
+
+  .dropdown-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .user-icon {
+    margin: 2rem 0 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    color: #00e0ff;
+  }
+  .modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,128 @@
+.footer-container {
+    background-color: #000;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    align-items: center;
+}
+
+.footer {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 40px;
+}
+
+.footer .logo {
+    font-size: 34px;
+    font-weight: bold;
+    color: #00e0ff;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+
+.footer .review {
+    margin-left: 100px;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.footer .review .stars {
+    color: red;
+}
+
+.footer .columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer .column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer .column h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #00e0ff;
+}
+
+.footer .column p, 
+.footer .column a {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    margin: 8px 0;
+    display: block;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+}
+
+.footer .column a:hover {
+    color: #00e0ff;
+}
+
+.footer .social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.footer .social-icons a {
+    color: #00e0ff;
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+.footer .social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.footer .copyright {
+    margin-top: 60px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.footer .badge {
+    background-color: #00e0ff;
+    color: #000;
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 20px;
+        margin: 0;
+    }
+    .footer .logo{
+        margin: 10px 0;
+    }
+    .footer .review{
+        margin: 15px 0;
+    }
+    
+    .footer .columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer .column {
+        width: 100%;
+    }
+    
+    .footer .social-icons {
+        justify-content: flex-start;
+    }
+}

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoatNova Systems – Smart IT Solutions & Software Development</title>
+    <style>
+        /* Global Styles */
+        body-mobile-app {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container-mobile-app {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn-mobile-app {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-mobile-app:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .section-title-mobile-app {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+        
+        .section-subtitle-mobile-app {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Header */
+        .header-mobile-app {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .navbar-mobile-app {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo-mobile-app {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .nav-links-mobile-app {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links-mobile-app li {
+            margin-left: 30px;
+        }
+        
+        .nav-links-mobile-app a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links-mobile-app a:hover {
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero-mobile-app {
+            padding: 180px 0 100px;
+            background-color: #f9fafb;
+            text-align: center;
+        }
+        
+        .hero-title-mobile-app {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+        
+        .hero-subtitle-mobile-app {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Services Section */
+        .services-mobile-app {
+            padding: 100px 0;
+        }
+        
+        .services-grid-mobile-app {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card-mobile-app {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card-mobile-app:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon-mobile-app {
+            font-size: 40px;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        
+        .service-title-mobile-app {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+        
+        .service-desc-mobile-app {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        /* Process Section */
+        .process-mobile-app {
+            padding: 100px 0;
+            background-color: #f9fafb;
+        }
+        
+        .process-steps-mobile-app {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            position: relative;
+        }
+        
+        .process-step-mobile-app {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-step-mobile-app:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-color: #e5e7eb;
+            z-index: -1;
+        }
+        
+        .step-number-mobile-app {
+            width: 80px;
+            height: 80px;
+            background-color: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title-mobile-app {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+        
+        .step-desc-mobile-app {
+            color: #6b7280;
+        }
+        
+        /* Technologies Section */
+        .technologies-mobile-app {
+            padding: 100px 0;
+        }
+        
+        .tech-grid-mobile-app {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .tech-card-mobile-app {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .tech-card-mobile-app:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-logo-mobile-app {
+            height: 60px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+        
+        .tech-name-mobile-app {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        /* CTA Section */
+        .cta-mobile-app {
+            padding: 100px 0;
+            background-color: #2563eb;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-title-mobile-app {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle-mobile-app {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-btn-mobile-app {
+            background-color: white;
+            color: #2563eb;
+        }
+        
+        .cta-btn-mobile-app:hover {
+            background-color: #f3f4f6;
+            color: #1d4ed8;
+        }
+        
+        /* Footer */
+        .footer-mobile-app {
+            background-color: #111827;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-grid-mobile-app {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col-mobile-app h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links-mobile-app {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links-mobile-app li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links-mobile-app a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links-mobile-app a:hover {
+            color: white;
+        }
+        
+        .copyright-mobile-app {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body-mobile-app>
+    <!-- Header -->
+    <header-mobile-app class="header-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <nav-mobile-app class="navbar-mobile-app">
+                <a-mobile-app href="/" class="logo-mobile-app">Codeglo</a-mobile-app>
+                <ul-mobile-app class="nav-links-mobile-app">
+                    <li-mobile-app><a-mobile-app href="/">Home</a-mobile-app></li-mobile-app>
+                    <li-mobile-app><a-mobile-app href="/services">Services</a-mobile-app></li-mobile-app>
+                    <li-mobile-app><a-mobile-app href="/portfolio">Portfolio</a-mobile-app></li-mobile-app>
+                    <li-mobile-app><a-mobile-app href="/about">About</a-mobile-app></li-mobile-app>
+                    <li-mobile-app><a-mobile-app href="/contact">Contact</a-mobile-app></li-mobile-app>
+                </ul-mobile-app>
+            </nav-mobile-app>
+        </div-mobile-app>
+    </header-mobile-app>
+
+    <!-- Hero Section -->
+    <section-mobile-app class="hero-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <h1-mobile-app class="hero-title-mobile-app">Mobile App Development Services</h1-mobile-app>
+            <p-mobile-app class="hero-subtitle-mobile-app">
+                We create stunning, high-performance mobile applications that drive engagement and deliver exceptional user experiences across all platforms.
+            </p-mobile-app>
+            <a-mobile-app href="#contact" class="btn-mobile-app">Get Started</a-mobile-app>
+        </div-mobile-app>
+    </section-mobile-app>
+
+    <!-- Services Section -->
+    <section-mobile-app class="services-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <h2-mobile-app class="section-title-mobile-app text-center">Our Mobile App Development Services</h2-mobile-app>
+            <p-mobile-app class="section-subtitle-mobile-app text-center">
+                We offer end-to-end mobile app development solutions tailored to your business needs.
+            </p-mobile-app>
+            
+            <div-mobile-app class="services-grid-mobile-app">
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">iOS App Development</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Custom iOS app development using Swift and Objective-C to create seamless experiences for iPhone and iPad users.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">Android App Development</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Native Android app development with Kotlin and Java to reach millions of users on the Google Play Store.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">Cross-Platform Development</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Build once, deploy everywhere with React Native, Flutter, and Xamarin for cost-effective cross-platform solutions.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">UI/UX Design</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Beautiful, intuitive interfaces designed to enhance user engagement and satisfaction.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">App Maintenance</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Ongoing support, updates, and maintenance to keep your app running smoothly and securely.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="service-card-mobile-app">
+                    <div-mobile-app class="service-icon-mobile-app">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div-mobile-app>
+                    <h3-mobile-app class="service-title-mobile-app">App Security</h3-mobile-app>
+                    <p-mobile-app class="service-desc-mobile-app">
+                        Comprehensive security solutions to protect your app and user data from vulnerabilities.
+                    </p-mobile-app>
+                    <a-mobile-app href="#" class="btn-mobile-app btn-outline">Learn More</a-mobile-app>
+                </div-mobile-app>
+            </div-mobile-app>
+        </div-mobile-app>
+    </section-mobile-app>
+
+    <!-- Process Section -->
+    <section-mobile-app class="process-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <h2-mobile-app class="section-title-mobile-app text-center">Our Development Process</h2-mobile-app>
+            <p-mobile-app class="section-subtitle-mobile-app text-center">
+                A proven methodology to deliver high-quality mobile applications on time and within budget.
+            </p-mobile-app>
+            
+            <div-mobile-app class="process-steps-mobile-app">
+                <div-mobile-app class="process-step-mobile-app">
+                    <div-mobile-app class="step-number-mobile-app">1</div-mobile-app>
+                    <h3-mobile-app class="step-title-mobile-app">Discovery</h3-mobile-app>
+                    <p-mobile-app class="step-desc-mobile-app">
+                        We analyze your requirements, target audience, and business objectives to create a detailed project plan.
+                    </p-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="process-step-mobile-app">
+                    <div-mobile-app class="step-number-mobile-app">2</div-mobile-app>
+                    <h3-mobile-app class="step-title-mobile-app">Design</h3-mobile-app>
+                    <p-mobile-app class="step-desc-mobile-app">
+                        Our designers create wireframes, prototypes, and stunning UI/UX designs tailored to your brand.
+                    </p-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="process-step-mobile-app">
+                    <div-mobile-app class="step-number-mobile-app">3</div-mobile-app>
+                    <h3-mobile-app class="step-title-mobile-app">Development</h3-mobile-app>
+                    <p-mobile-app class="step-desc-mobile-app">
+                        Our developers implement features using best practices and the latest technologies.
+                    </p-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="process-step-mobile-app">
+                    <div-mobile-app class="step-number-mobile-app">4</div-mobile-app>
+                    <h3-mobile-app class="step-title-mobile-app">Testing</h3-mobile-app>
+                    <p-mobile-app class="step-desc-mobile-app">
+                        Rigorous testing across devices and platforms to ensure flawless performance.
+                    </p-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="process-step-mobile-app">
+                    <div-mobile-app class="step-number-mobile-app">5</div-mobile-app>
+                    <h3-mobile-app class="step-title-mobile-app">Deployment</h3-mobile-app>
+                    <p-mobile-app class="step-desc-mobile-app">
+                        We help you launch on app stores and monitor performance post-launch.
+                    </p-mobile-app>
+                </div-mobile-app>
+            </div-mobile-app>
+        </div-mobile-app>
+    </section-mobile-app>
+
+    <!-- Technologies Section -->
+    <section-mobile-app class="technologies-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <h2-mobile-app class="section-title-mobile-app text-center">Technologies We Work With</h2-mobile-app>
+            <p-mobile-app class="section-subtitle-mobile-app text-center">
+                We leverage cutting-edge technologies to build powerful, scalable mobile applications.
+            </p-mobile-app>
+            
+            <div-mobile-app class="tech-grid-mobile-app">
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/swift-15.svg" alt="Swift" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">Swift</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/kotlin-1.svg" alt="Kotlin" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">Kotlin</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React Native" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">React Native</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/flutter-logo.svg" alt="Flutter" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">Flutter</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">Firebase</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/nodejs-1.svg" alt="Node.js" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">Node.js</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">MongoDB</h3-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="tech-card-mobile-app">
+                    <img-mobile-app src="https://cdn.worldvectorlogo.com/logos/aws-logo.svg" alt="AWS" class="tech-logo-mobile-app">
+                    <h3-mobile-app class="tech-name-mobile-app">AWS</h3-mobile-app>
+                </div-mobile-app>
+            </div-mobile-app>
+        </div-mobile-app>
+    </section-mobile-app>
+
+    <!-- CTA Section -->
+    <section-mobile-app class="cta-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <h2-mobile-app class="cta-title-mobile-app">Ready to Build Your Mobile App?</h2-mobile-app>
+            <p-mobile-app class="cta-subtitle-mobile-app">
+                Let's discuss your project and create a custom solution that meets your business goals.
+            </p-mobile-app>
+            <a-mobile-app href="#contact" class="btn-mobile-app cta-btn-mobile-app">Get a Free Consultation</a-mobile-app>
+        </div-mobile-app>
+    </section-mobile-app>
+
+    <!-- Footer -->
+    <footer-mobile-app class="footer-mobile-app">
+        <div-mobile-app class="container-mobile-app">
+            <div-mobile-app class="footer-grid-mobile-app">
+                <div-mobile-app class="footer-col-mobile-app">
+                    <h3-mobile-app>Codeglo</h3-mobile-app>
+                    <p-mobile-app>
+                        We deliver innovative digital solutions that drive business growth and transform user experiences.
+                    </p-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="footer-col-mobile-app">
+                    <h3-mobile-app>Services</h3-mobile-app>
+                    <ul-mobile-app class="footer-links-mobile-app">
+                        <li-mobile-app><a-mobile-app href="#">Mobile App Development</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Web Development</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">UI/UX Design</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Cloud Solutions</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Digital Marketing</a-mobile-app></li-mobile-app>
+                    </ul-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="footer-col-mobile-app">
+                    <h3-mobile-app>Company</h3-mobile-app>
+                    <ul-mobile-app class="footer-links-mobile-app">
+                        <li-mobile-app><a-mobile-app href="#">About Us</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Portfolio</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Careers</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Blog</a-mobile-app></li-mobile-app>
+                        <li-mobile-app><a-mobile-app href="#">Contact</a-mobile-app></li-mobile-app>
+                    </ul-mobile-app>
+                </div-mobile-app>
+                
+                <div-mobile-app class="footer-col-mobile-app">
+                    <h3-mobile-app>Contact</h3-mobile-app>
+                    <ul-mobile-app class="footer-links-mobile-app">
+                        <li-mobile-app>123 Tech Street</li-mobile-app>
+                        <li-mobile-app>San Francisco, CA 94107</li-mobile-app>
+                        <li-mobile-app>info@codeglo.com</li-mobile-app>
+                        <li-mobile-app>+1 (555) 123-4567</li-mobile-app>
+                    </ul-mobile-app>
+                </div-mobile-app>
+            </div-mobile-app>
+            
+            <div-mobile-app class="copyright-mobile-app">
+                <p-mobile-app>&copy; 2023 Codeglo. All rights reserved.</p-mobile-app>
+            </div-mobile-app>
+        </div-mobile-app>
+    </footer-mobile-app>
+</body-mobile-app>
+</html>
