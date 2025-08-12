@@ -151,7 +151,7 @@ const Careers = () => {
                 Backend Developer
               </h3>
               <div style={{ marginBottom: '1.5rem', color: '#ddd', fontSize: '0.95rem' }}>
-                <p><strong>Location:</strong> New York / Remote</p>
+                <p><strong>Location:</strong> Pakistan / Remote</p>
                 <p><strong>Type:</strong> Full-time</p>
               </div>
               <div style={{ 
