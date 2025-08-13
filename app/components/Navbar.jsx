@@ -1,11 +1,9 @@
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaCircleUser, FaChevronDown, FaChevronUp, FaBars } from 'react-icons/fa6';
+import { FaChevronDown, FaChevronUp, FaBars } from 'react-icons/fa6';
 import { FaTimes } from 'react-icons/fa';
 import './navbar.css';
-import { ClerkProvider, UserButton, SignedIn, SignedOut, SignInButton } from '@clerk/nextjs';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -72,13 +70,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar`}>
+    <nav className="navbar">
       <div className="container">
         {/* Logo */}
         <div className="logo">
           <Link href="/" onClick={closeAll}>
-            <img 
-              src="/navbar logo.png" 
+            <img
+              src="/navbar logo.png"
               alt="GoatNova Systems"
               className="logo-image"
             />
@@ -92,7 +90,7 @@ const Navbar = () => {
               <li key={index} className={activeDropdown === index ? 'active' : ''}>
                 {item.dropdown ? (
                   <>
-                    <button 
+                    <button
                       onClick={() => toggleDropdown(index)}
                       aria-expanded={activeDropdown === index}
                       aria-controls={`dropdown-${index}`}
@@ -101,16 +99,16 @@ const Navbar = () => {
                       {activeDropdown === index ? <FaChevronUp /> : <FaChevronDown />}
                     </button>
                     {activeDropdown === index && (
-                      <div 
+                      <div
                         id={`dropdown-${index}`}
                         className="dropdown-menu full-width"
                       >
                         <div className="dropdown-container">
                           <div className="dropdown-grid">
                             {item.dropdown.map((subItem, subIndex) => (
-                              <Link 
-                                key={subIndex} 
-                                href={subItem.link} 
+                              <Link
+                                key={subIndex}
+                                href={subItem.link}
                                 className="dropdown-item"
                                 onClick={closeAll}
                               >
@@ -128,27 +126,11 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
-          {/* User Icon */}
-          <div className="user-icon">
-            <ClerkProvider>
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" />
-              </SignedIn>
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="user-icon-button">
-                    <FaCircleUser />
-                  </button>
-                </SignInButton>
-              </SignedOut>
-            </ClerkProvider>
-          </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="mobile-menu-btn" 
+        <button
+          className="mobile-menu-btn"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >

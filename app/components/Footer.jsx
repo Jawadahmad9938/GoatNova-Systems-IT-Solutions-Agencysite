@@ -38,7 +38,6 @@ function Footer() {
             <a href="#">Artificial Intelligence(AI)</a>
             <a href="#">Machine Learning</a>
             <a href="#">Data Analytics</a>
-            <a href="#">IT Security</a>
             <a href="#">Generative AI</a>
             <a href="#">Internet of Things(IoT)</a>
           </div>
@@ -47,9 +46,8 @@ function Footer() {
             <a href="#">About Us</a>
             <a href="#">Careers <span className="badge">We're hiring</span></a>
             <a href="#">Technology & Skill Set</a>
-            <a href="#">Ventures and Partnerships</a>
             <a href="#">Terms of Service</a>
-            <a href="#">RPA Website Case Study</a>
+            <a href="#">Data Privacy</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Contact Us</a>
           </div>
