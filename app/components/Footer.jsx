@@ -11,13 +11,11 @@ function Footer() {
         </div>
         <div className="columns">
           <div className="column">
-            <h3>GLOBAL HEADQUARTERS</h3>
-            <p>342 N Water St</p>
-            <p>Suite 600</p>
-            <p>Milwaukee, WI 53203</p>
-            <p>USA</p>
-            <p>+1920-221-0777</p>
-            <p>info@codeglo.com</p>
+           <h3>HEADQUARTER</h3>
+            <p>Pakistan, Multan</p>
+            <p>Get Us</p>
+            <p>+92301 1414134</p>
+            <p>jawadahmad9938@gmail.com</p>
             <div className="social-icons">
               <a href="#"><i className="fab fa-facebook-f"></i></a>
               <a href="#"><i className="fab fa-xing"></i></a>
@@ -37,13 +35,12 @@ function Footer() {
             <h3>SERVICES</h3>
             <a href="#">Mobile App Development</a>
             <a href="#">Web Development</a>
-            <a href="#">Cloud Infrastructure</a>
+            <a href="#">Artificial Intelligence(AI)</a>
+            <a href="#">Machine Learning</a>
+            <a href="#">Data Analytics</a>
             <a href="#">IT Security</a>
-            <a href="#">Digital Marketing</a>
-            <a href="#">Remote Technology Staffing</a>
-            <a href="#">ADA Compliance</a>
-            <a href="#">Blockchain Technology</a>
-            <a href="#">Quality Assurance</a>
+            <a href="#">Generative AI</a>
+            <a href="#">Internet of Things(IoT)</a>
           </div>
           <div className="column">
             <h3>COMPANY</h3>

@@ -17,9 +17,20 @@ import * as THREE from 'three';
 
 function Home() {
   const mountRef = useRef(null);
+  const rendererRef = useRef(null);
+  const animationFrameId = useRef(null);
 
   useEffect(() => {
+    // Initialize AOS
     AOS.init();
+
+    // Ensure mountRef is available
+    if (!mountRef.current) return;
+
+    // Clear any existing canvases to prevent duplicates
+    while (mountRef.current.firstChild) {
+      mountRef.current.removeChild(mountRef.current.firstChild);
+    }
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -27,6 +38,7 @@ function Home() {
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
+    rendererRef.current = renderer;
 
     // Cubes
     const cubes = [];
@@ -101,7 +113,7 @@ function Home() {
 
     // Animation loop
     const animate = () => {
-      requestAnimationFrame(animate);
+      animationFrameId.current = requestAnimationFrame(animate);
 
       cubes.forEach(cube => {
         cube.rotation.x += 0.01;
@@ -156,9 +168,42 @@ function Home() {
     };
     window.addEventListener('resize', handleResize);
 
+    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      mountRef.current.removeChild(renderer.domElement);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+      if (mountRef.current && rendererRef.current) {
+        try {
+          // Remove all children from mountRef
+          while (mountRef.current.firstChild) {
+            mountRef.current.removeChild(mountRef.current.firstChild);
+          }
+          // Dispose Three.js resources
+          rendererRef.current.dispose();
+          cubeGeometry.dispose();
+          cubeMaterial.dispose();
+          sphereGeometry.dispose();
+          sphereMaterial.dispose();
+          ringGeometry.dispose();
+          ringMaterial.dispose();
+          particlesGeometry.dispose();
+          particlesMaterial.dispose();
+          glowParticlesGeometry.dispose();
+          glowMaterial.dispose();
+          moverGeometry.dispose();
+          moverMaterial.dispose();
+          // Clear scene
+          while (scene.children.length > 0) {
+            scene.remove(scene.children[0]);
+          }
+        } catch (error) {
+          console.warn('Cleanup error:', error);
+        }
+      }
+      // Clean up AOS
+      AOS.refreshHard();
     };
   }, []);
 
@@ -169,7 +214,8 @@ function Home() {
         background: 'linear-gradient(135deg, #000000, #333333)',
         width: '100%',
         height: '100vh',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden' // Prevent overflow issues
       }}>
       </div>
 

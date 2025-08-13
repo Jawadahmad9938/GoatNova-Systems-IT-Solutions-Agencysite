@@ -11,7 +11,7 @@ function Together() {
                 Clutch
             </div>
             <div className="card-body-tesst">
-                <h2>CodeGlo Tech & Marketing</h2>
+                <h2>GoatNova Systems & Marketing</h2>
                 <div className="reviews-tesst">
                     <div className="stars-tesst">
                         <i className="fas fa-star"><FaStar /></i>
