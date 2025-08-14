@@ -1129,11 +1129,19 @@ Services CSS
   }
   
   .logos-services {
-    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-left: 0; /* Remove left margin for centering */
+    margin-top: 30px;
   }
   
   .logos-services img {
     height: 40px;
+    width: 80px; /* Adjusted width for mobile */
+    object-fit: contain;
+    margin-left: 0; /* Remove individual logo margin */
   }
   
   .container-services-1 {
