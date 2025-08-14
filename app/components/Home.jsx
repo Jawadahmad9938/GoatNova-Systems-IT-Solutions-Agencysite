@@ -4,7 +4,7 @@ import {
   FaAndroid, FaApple, FaShopify, FaAngular, FaNodeJs, FaPython, FaAws, FaGoogle, FaStripe,
   FaMailchimp, FaBitcoin, FaEthereum, FaMicrosoft, FaCloudflare, FaInfoCircle, FaCloudDownloadAlt,
   FaChartLine, FaAd, FaUniversalAccess, FaWaveSquare, FaCheckCircle, FaShieldAlt, FaLock, FaUsers,
-  FaCode, FaCoins, FaPlay, FaTasks, FaLightbulb, FaDatabase, FaComments, FaThumbsUp
+  FaCode, FaCoins, FaPlay, FaTasks, FaLightbulb, FaDatabase, FaComments, FaThumbsUp, FaWhatsapp
 } from 'react-icons/fa';
 import { BsBrowserChrome, BsSmartwatch } from "react-icons/bs";
 import { IoLogoAndroid } from "react-icons/io";
@@ -216,6 +216,18 @@ function Home() {
             </div>
           </div>
         </div>
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/+923011414134"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 w-12 h-12 sm:w-14 sm:h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 z-50"
+          style={{ fontFamily: '"Poppins", sans-serif' }}
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <FaWhatsapp size={24} />
+        </a>
       </div>
 
       {/* Home Section 1 */}
