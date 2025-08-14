@@ -1,6 +1,7 @@
 'use client'
 import Aos from 'aos';
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 
 function Testimonial() {
 
@@ -18,7 +19,7 @@ function Testimonial() {
     Global market leaders trust and recommend us!
    </h1>
    <p data-aos = "zoom-in">
-    And here's what they have to say about us.
+    And here what they have to say about us.
    </p>
    <div className="testimonials-testimonial">
     <div data-aos = "fade-right" className="testimonial-testimonial">

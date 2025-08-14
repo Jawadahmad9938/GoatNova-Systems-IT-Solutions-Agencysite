@@ -7,6 +7,7 @@ import Mobile_4 from '../components/Mobile-4'
 import Together from '../components/Together'
 import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
+import Image from 'next/image'
 
 const Mobile = () => {
 

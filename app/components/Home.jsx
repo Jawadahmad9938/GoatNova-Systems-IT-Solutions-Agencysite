@@ -1,11 +1,13 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import { FaAndroid, FaApple, FaShopify, FaAngular, FaNodeJs, FaPython, FaAws, FaGoogle, FaStripe, FaMailchimp, FaBitcoin, FaEthereum, FaMicrosoft, FaCloudflare, FaInfoCircle, FaCloudDownloadAlt } from 'react-icons/fa';
-import { FaChartLine, FaAd, FaUniversalAccess, FaWaveSquare, FaCheckCircle, FaShieldAlt, FaLock, FaUsers, FaCode, FaCoins } from 'react-icons/fa';
-import { FaPlay, FaTasks, FaLightbulb, FaDatabase, FaComments, FaThumbsUp } from 'react-icons/fa';
-import { BsBrowserChrome } from "react-icons/bs";
+import {
+  FaAndroid, FaApple, FaShopify, FaAngular, FaNodeJs, FaPython, FaAws, FaGoogle, FaStripe,
+  FaMailchimp, FaBitcoin, FaEthereum, FaMicrosoft, FaCloudflare, FaInfoCircle, FaCloudDownloadAlt,
+  FaChartLine, FaAd, FaUniversalAccess, FaWaveSquare, FaCheckCircle, FaShieldAlt, FaLock, FaUsers,
+  FaCode, FaCoins, FaPlay, FaTasks, FaLightbulb, FaDatabase, FaComments, FaThumbsUp
+} from 'react-icons/fa';
+import { BsBrowserChrome, BsSmartwatch } from "react-icons/bs";
 import { IoLogoAndroid } from "react-icons/io";
-import { BsSmartwatch } from "react-icons/bs";
 import Counter from './Counter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -14,6 +16,7 @@ import Testimonial from './Testimonial';
 import Development from './Development';
 import Navbar from '../components/Navbar';
 import * as THREE from 'three';
+import Image from 'next/image'; // ✅ Next.js optimized Image
 
 function Home() {
   const mountRef = useRef(null);
@@ -21,26 +24,23 @@ function Home() {
   const animationFrameId = useRef(null);
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init();
 
-    // Ensure mountRef is available
-    if (!mountRef.current) return;
+    const mountNode = mountRef.current; // ✅ Local variable fix
+    if (!mountNode) return;
 
-    // Clear any existing canvases to prevent duplicates
-    while (mountRef.current.firstChild) {
-      mountRef.current.removeChild(mountRef.current.firstChild);
+    while (mountNode.firstChild) {
+      mountNode.removeChild(mountNode.firstChild);
     }
 
-    // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    mountRef.current.appendChild(renderer.domElement);
+    mountNode.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Cubes
+    // --- Shapes ---
     const cubes = [];
     const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
     const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
@@ -51,7 +51,6 @@ function Home() {
       scene.add(cube);
     }
 
-    // Spheres
     const spheres = [];
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
     const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500, transparent: true, opacity: 0.7 });
@@ -62,7 +61,6 @@ function Home() {
       scene.add(sphere);
     }
 
-    // Torus rings
     const rings = [];
     const ringGeometry = new THREE.TorusGeometry(1.5, 0.2, 16, 100);
     const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff, wireframe: true });
@@ -73,7 +71,6 @@ function Home() {
       scene.add(ring);
     }
 
-    // Small white particles
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesCount = 200;
     const positions = new Float32Array(particlesCount * 3);
@@ -85,7 +82,6 @@ function Home() {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
-    // Glowing particles
     const glowParticlesGeometry = new THREE.BufferGeometry();
     const glowCount = 50;
     const glowPositions = new Float32Array(glowCount * 3);
@@ -97,7 +93,6 @@ function Home() {
     const glowParticles = new THREE.Points(glowParticlesGeometry, glowMaterial);
     scene.add(glowParticles);
 
-    // Movers
     const movers = [];
     const moverGeometry = new THREE.SphereGeometry(0.2, 8, 8);
     const moverMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
@@ -111,7 +106,6 @@ function Home() {
 
     camera.position.z = 8;
 
-    // Animation loop
     const animate = () => {
       animationFrameId.current = requestAnimationFrame(animate);
 
@@ -131,7 +125,6 @@ function Home() {
         ring.position.x += 0.002 * Math.sin(Date.now() * 0.001 + idx);
       });
 
-      // Move small particles
       const pos = particlesGeometry.attributes.position.array;
       for (let i = 0; i < particlesCount; i++) {
         pos[i * 3 + 1] += 0.005 * (Math.random() - 0.5);
@@ -139,7 +132,6 @@ function Home() {
       }
       particlesGeometry.attributes.position.needsUpdate = true;
 
-      // Move glowing particles
       const gpos = glowParticlesGeometry.attributes.position.array;
       for (let i = 0; i < glowCount; i++) {
         gpos[i * 3 + 1] += 0.01;
@@ -147,7 +139,6 @@ function Home() {
       }
       glowParticlesGeometry.attributes.position.needsUpdate = true;
 
-      // Move movers
       movers.forEach(mover => {
         mover.position.z += mover.userData.speed;
         if (mover.position.z > 10) {
@@ -168,19 +159,15 @@ function Home() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
-      if (mountRef.current && rendererRef.current) {
+      if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
+
+      if (mountNode && rendererRef.current) {
         try {
-          // Remove all children from mountRef
-          while (mountRef.current.firstChild) {
-            mountRef.current.removeChild(mountRef.current.firstChild);
+          while (mountNode.firstChild) {
+            mountNode.removeChild(mountNode.firstChild);
           }
-          // Dispose Three.js resources
           rendererRef.current.dispose();
           cubeGeometry.dispose();
           cubeMaterial.dispose();
@@ -194,7 +181,6 @@ function Home() {
           glowMaterial.dispose();
           moverGeometry.dispose();
           moverMaterial.dispose();
-          // Clear scene
           while (scene.children.length > 0) {
             scene.remove(scene.children[0]);
           }
@@ -202,7 +188,6 @@ function Home() {
           console.warn('Cleanup error:', error);
         }
       }
-      // Clean up AOS
       AOS.refreshHard();
     };
   }, []);
@@ -210,14 +195,18 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="home" id='image-container' ref={mountRef} style={{
-        background: 'linear-gradient(135deg, #000000, #333333)',
-        width: '100%',
-        height: '100vh',
-        position: 'relative',
-        overflow: 'hidden' // Prevent overflow issues
-      }}>
-      </div>
+      <div
+        className="home"
+        id="image-container"
+        ref={mountRef}
+        style={{
+          background: 'linear-gradient(135deg, #000000, #333333)',
+          width: '100%',
+          height: '100vh',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      ></div>
 
       {/* Home Section 1 */}
       <div className="home-section-1">
@@ -226,16 +215,22 @@ function Home() {
             Who we have worked with
           </h1>
           <div className="grid-home-section-1">
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="AER CELL Logo" height="100" src="1.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="BIG GREEN DAO Logo" height="100" src="11_1.svg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="MARAH NATURAL Logo" height="100" src="3.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="VMWARE Logo" height="100" src="4.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="DELL Logo" height="100" src="5.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="HITACHI Logo" height="100" src="6.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="AUTOMATION ANYWHERE Logo" height="100" src="7.png" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="NATERA Logo" height="100" src="8.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="VAHDAM INDIA Logo" height="100" src="9.jpg" width="200"/></div>
-            <div className="grid-item-home-section-1" data-aos="zoom-in"><img alt="USHUR Logo" height="100" src="10.jpg" width="200"/></div>
+            {[
+              { src: "/1.jpg", alt: "AER CELL Logo" },
+              { src: "/11_1.svg", alt: "BIG GREEN DAO Logo" },
+              { src: "/3.jpg", alt: "MARAH NATURAL Logo" },
+              { src: "/4.jpg", alt: "VMWARE Logo" },
+              { src: "/5.jpg", alt: "DELL Logo" },
+              { src: "/6.jpg", alt: "HITACHI Logo" },
+              { src: "/7.png", alt: "AUTOMATION ANYWHERE Logo" },
+              { src: "/8.jpg", alt: "NATERA Logo" },
+              { src: "/9.jpg", alt: "VAHDAM INDIA Logo" },
+              { src: "/10.jpg", alt: "USHUR Logo" },
+            ].map((img, i) => (
+              <div key={i} className="grid-item-home-section-1" data-aos="zoom-in">
+                <Image src={img.src} alt={img.alt} width={200} height={100} />
+              </div>
+            ))}
           </div>
           <div className="view-more-home-section-1" data-aos="fade-right">
             <a href="#">View More</a>
@@ -244,7 +239,7 @@ function Home() {
       </div>
 
       {/* Home Section 2 */}
-      <div className='home-section-2'>
+      <div className="home-section-2">
         <div className="container-home-section-2">
           <h1 data-aos="zoom-in">What We Do?</h1>
           <Development />
@@ -252,17 +247,19 @@ function Home() {
       </div>
 
       {/* Home Section 3 */}
-      <div className='home-section-3'>
+      <div className="home-section-3">
         <div className="container-home-section-3">
           <h1 data-aos="fade-right">Product</h1>
-          <p data-aos="zoom-in">We have the experience and expertise in building enterprise grade mobile applications and provide end to end IT solutions to industry specific demands.</p>
+          <p data-aos="zoom-in">
+            We have the experience and expertise in building enterprise grade mobile applications and provide end to end IT solutions to industry specific demands.
+          </p>
           <div className="product-section-home-section-3">
             <div className="product-home-section-3" data-aos="fade-right">
-              <img alt="Purchase approval" src="purchase-approval.png"/>
+              <Image alt="Purchase approval" src="/purchase-approval.png" width={300} height={200} />
               <div className="product-title-home-section-3">Purchase approval</div>
             </div>
             <div className="product-home-section-3" data-aos="fade-right">
-              <img alt="Board meeting" src="board-meeting.png"/>
+              <Image alt="Board meeting" src="/board-meeting.png" width={300} height={200} />
               <div className="product-title-home-section-3">Board meeting</div>
             </div>
           </div>
@@ -293,7 +290,7 @@ function Home() {
       </div>
 
       {/* Stack Section */}
-      <div className='stack'>
+      <div className="stack">
         <div className="container-stack">
           <h1 data-aos="fade-right">Our Technology Stack</h1>
           <p data-aos="fade-right">We use modern, proven technologies and approaches that allow us to effectively extend and scale our products.</p>

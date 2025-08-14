@@ -13,11 +13,11 @@ const Careers = () => {
         <div className="container-services">
           <div className="title-services">Join Our Team</div>
           <div className="subtitle-services">
-            We're always looking for creative, passionate, and innovative 
+            We&apos;re always looking for creative, passionate, and innovative 
             individuals to help us build the future of technology.
             <br />
             If you want to work on exciting projects, grow your skills, 
-            and be part of a driven and friendly team — we'd love to hear from you!
+            and be part of a driven and friendly team — we&apos;d love to hear from you!
           </div>
 
           <div 
@@ -37,16 +37,16 @@ const Careers = () => {
               className="job-card" 
               style={{
                 padding: '2rem',
-                background: 'rgba(0,0,0,0.6)', // semi-transparent black
+                background: 'rgba(0,0,0,0.6)',
                 borderRadius: '12px',
                 boxShadow: '0 4px 30px rgba(0,0,0,0.3)',
                 textAlign: 'left',
-                color: '#ffffff', // white text for contrast
+                color: '#ffffff',
                 border: '1px solid rgba(255,255,255,0.1)',
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                backdropFilter: 'blur(4px)' // smooth glassy effect
+                backdropFilter: 'blur(4px)'
               }}
             >
               <h3 style={{ marginBottom: '0.75rem', fontSize: '1.5rem', fontWeight: '600' }}>

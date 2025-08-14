@@ -20,7 +20,7 @@ const Mobile_2 = () => {
             <i><TbDeviceMobileCode /></i>
             <h3>Hybrid Mobile App Development</h3>
             <p>
-              Hybrid mobile app development combines the best of both worlds to deliver effective and functional apps. Hybrid technology uses the development and native app's typical approach for custom, cross-platform apps for your complete tech study, <a className="link-mobile-2" href="#">click here</a>.
+              Hybrid mobile app development combines the best of both worlds to deliver effective and functional apps. Hybrid technology uses the development and native apps typical approach for custom, cross-platform apps for your complete tech study, <a className="link-mobile-2" href="#">click here</a>.
             </p>
           </div>
           <div className="card-mobile-2">
@@ -34,7 +34,7 @@ const Mobile_2 = () => {
             <i><MdOutlineAppShortcut /></i>
             <h3>App Design Services</h3>
             <p>
-              We don't only build development. We also supply design solutions for the project's user interface, the employee experience, a straightforward user journey, re-branding and training services, and more for complete control for your app. We also combine offering support and maintenance for your app.
+              We dont only build development. We also supply design solutions for the projects user interface, the employee experience, a straightforward user journey, re-branding and training services, and more for complete control for your app. We also combine offering support and maintenance for your app.
             </p>
           </div>
         </div>

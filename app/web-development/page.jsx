@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Testimonial from '../components/Testimonial';
 import Together from '../components/Together';
 import Footer from '../components/Footer';
+import Image from 'next/image'
 
 const Web_development = () => {
   return (

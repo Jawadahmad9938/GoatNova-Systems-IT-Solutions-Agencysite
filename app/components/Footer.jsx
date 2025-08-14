@@ -44,7 +44,7 @@ function Footer() {
           <div className="column">
             <h3>COMPANY</h3>
             <a href="#">About Us</a>
-            <a href="#">Careers <span className="badge">We're hiring</span></a>
+            <a href="#">Careers <span className="badge">We are hiring</span></a>
             <a href="#">Technology & Skill Set</a>
             <a href="#">Terms of Service</a>
             <a href="#">Data Privacy</a>

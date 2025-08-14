@@ -13,6 +13,7 @@ import Stack from '../components/Stack';
 import Footer from '../components/Footer';
 import Together from '../components/Together';
 import Navbar from '../components/Navbar';
+import Image from 'next/image'
 
 function Services() {
   return (
@@ -49,7 +50,7 @@ function Services() {
       <div className="container-services-1">
             <div className="service-services-2">
                 <h2>Mobile App Development</h2>
-                <p>We bring innovative design and high-end mobile app solutions that guarantee quality products built to meet the market's demands. Clean, minimalistic, bold, or complex - we'll get the job done!</p>
+                <p>We bring innovative design and high-end mobile app solutions that guarantee quality products built to meet the market demands. Clean, minimalistic, bold, or complex - we will get the job done!</p>
                 <div className="icons">
                     <FaAndroid />
                     <FaApple />
@@ -120,7 +121,7 @@ function Services() {
             </div>
             <div className="service-services-2">
                 <h2>Online Reputation Management</h2>
-                <p>Our ORM services can help you boost your brand's digital presence and ensure SEO and Digital Marketing processes to build a loyal user base for your brand while minimizing any adverse impact on your reputation.</p>
+                <p>Our ORM services can help you boost your brand digital presence and ensure SEO and Digital Marketing processes to build a loyal user base for your brand while minimizing any adverse impact on your reputation.</p>
                 <div className="icons">
                     <SiTrustpilot />
                     <GiEggClutch />

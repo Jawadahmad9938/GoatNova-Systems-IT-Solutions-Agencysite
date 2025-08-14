@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Testimonial from '../components/Testimonial'
 import Together from '../components/Together'
 import Footer from '../components/Footer'
+import Image from 'next/image' // ✅ Import Next.js Image component
 
 const About = () => {
   return (
@@ -22,10 +23,30 @@ const About = () => {
           <div className="featured-services">
             <p>Trusted by global innovators</p>
             <div className="logos-services">
-              <img alt="Fox News Logo" height="50" src="fox_news_channel_logo.svg" width="100" />
-              <img alt="NBC Logo" height="50" src="nbc_logo.svg" width="100" />
-              <img alt="Product Hunt Logo" height="50" src="product-hunt-logo-vertical-black.svg" width="100" />
-              <img alt="Medium Logo" height="50" src="medium-seeklogo.com.svg" width="100" />
+              <Image
+                alt="Fox News Logo"
+                src="/fox_news_channel_logo.svg"
+                width={100}
+                height={50}
+              />
+              <Image
+                alt="NBC Logo"
+                src="/nbc_logo.svg"
+                width={100}
+                height={50}
+              />
+              <Image
+                alt="Product Hunt Logo"
+                src="/product-hunt-logo-vertical-black.svg"
+                width={100}
+                height={50}
+              />
+              <Image
+                alt="Medium Logo"
+                src="/medium-seeklogo.com.svg"
+                width={100}
+                height={50}
+              />
             </div>
           </div>
         </div>

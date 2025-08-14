@@ -35,7 +35,7 @@ function Together() {
             </div>
         </div>
         <div className="cta-tesst">
-            <h1>Let's work together</h1>
+            <h1>Lets work together</h1>
             <p>When you need to innovate, you need collaboration.</p>
             <a href="#" className="button-tesst">
                 <i className="fas fa-envelope"></i> Drop us a message

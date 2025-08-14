@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FaChevronDown, FaChevronUp, FaBars } from 'react-icons/fa6';
 import { FaTimes } from 'react-icons/fa';
 import './navbar.css';
+import Image from 'next/image' // ✅ Import Next.js Image component
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
