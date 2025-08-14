@@ -16,7 +16,7 @@ import Testimonial from './Testimonial';
 import Development from './Development';
 import Navbar from '../components/Navbar';
 import * as THREE from 'three';
-import Image from 'next/image'; // ✅ Next.js optimized Image
+import Image from 'next/image';
 
 function Home() {
   const mountRef = useRef(null);
@@ -26,7 +26,7 @@ function Home() {
   useEffect(() => {
     AOS.init();
 
-    const mountNode = mountRef.current; // ✅ Local variable fix
+    const mountNode = mountRef.current;
     if (!mountNode) return;
 
     while (mountNode.firstChild) {
@@ -40,113 +40,80 @@ function Home() {
     mountNode.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // --- Shapes ---
-    const cubes = [];
-    const cubeGeometry = new THREE.BoxGeometry(2, 2, 2);
-    const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true });
-    for (let i = 0; i < 3; i++) {
-      const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-      cube.position.set(Math.random() * 10 - 5, Math.random() * 10 - 5, Math.random() * 10 - 5);
-      cubes.push(cube);
-      scene.add(cube);
-    }
+    // --- Enhanced Animation with Three Objects ---
+    // Object 1: Rotating Wireframe Cube
+    const cubeGeometry = new THREE.BoxGeometry(3, 3, 3);
+    const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffcc, wireframe: true, transparent: true, opacity: 0.8 });
+    const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    cube.position.set(-4, 2, -5);
+    scene.add(cube);
 
-    const spheres = [];
-    const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+    // Object 2: Pulsating Sphere
+    const sphereGeometry = new THREE.SphereGeometry(1.5, 32, 32);
     const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xffa500, transparent: true, opacity: 0.7 });
-    for (let i = 0; i < 2; i++) {
-      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-      sphere.position.set(Math.random() * 15 - 7.5, Math.random() * 15 - 7.5, Math.random() * 15 - 7.5);
-      spheres.push(sphere);
-      scene.add(sphere);
-    }
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.set(3, -1, -4);
+    scene.add(sphere);
 
-    const rings = [];
-    const ringGeometry = new THREE.TorusGeometry(1.5, 0.2, 16, 100);
-    const ringMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff, wireframe: true });
-    for (let i = 0; i < 4; i++) {
-      const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-      ring.position.set(Math.random() * 12 - 6, Math.random() * 12 - 6, Math.random() * 12 - 6);
-      rings.push(ring);
-      scene.add(ring);
-    }
+    // Object 3: Floating Torus Ring
+    const torusGeometry = new THREE.TorusGeometry(2, 0.3, 16, 100);
+    const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff, wireframe: true, transparent: true, opacity: 0.8 });
+    const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+    torus.position.set(0, -3, -6);
+    scene.add(torus);
 
+    // Subtle Particle Field for Depth
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 200;
+    const particlesCount = 100; // Reduced for subtlety
     const positions = new Float32Array(particlesCount * 3);
-    for (let i = 0; i < particlesCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 30;
+    const opacities = new Float32Array(particlesCount);
+    for (let i = 0; i < particlesCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+      opacities[i] = Math.random() * 0.5 + 0.2; // Varying opacity for fade effect
     }
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05 });
+    particlesGeometry.setAttribute('opacity', new THREE.BufferAttribute(opacities, 1));
+    const particlesMaterial = new THREE.PointsMaterial({
+      color: 0xffffff,
+      size: 0.1,
+      transparent: true,
+      opacity: 0.5,
+      blending: THREE.AdditiveBlending
+    });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
-    const glowParticlesGeometry = new THREE.BufferGeometry();
-    const glowCount = 50;
-    const glowPositions = new Float32Array(glowCount * 3);
-    for (let i = 0; i < glowCount * 3; i++) {
-      glowPositions[i] = (Math.random() - 0.5) * 30;
-    }
-    glowParticlesGeometry.setAttribute('position', new THREE.BufferAttribute(glowPositions, 3));
-    const glowMaterial = new THREE.PointsMaterial({ color: 0xff00ff, size: 0.15 });
-    const glowParticles = new THREE.Points(glowParticlesGeometry, glowMaterial);
-    scene.add(glowParticles);
-
-    const movers = [];
-    const moverGeometry = new THREE.SphereGeometry(0.2, 8, 8);
-    const moverMaterial = new THREE.MeshBasicMaterial({ color: 0x00ffff });
-    for (let i = 0; i < 8; i++) {
-      const mover = new THREE.Mesh(moverGeometry, moverMaterial);
-      mover.position.set(Math.random() * 20 - 10, Math.random() * 10 - 5, Math.random() * 20 - 10);
-      mover.userData.speed = Math.random() * 0.05 + 0.02;
-      movers.push(mover);
-      scene.add(mover);
-    }
-
-    camera.position.z = 8;
+    camera.position.z = 10;
 
     const animate = () => {
       animationFrameId.current = requestAnimationFrame(animate);
 
-      cubes.forEach(cube => {
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-      });
+      // Smooth, slow rotation for cube
+      cube.rotation.x += 0.005;
+      cube.rotation.y += 0.005;
 
-      spheres.forEach((sphere, idx) => {
-        sphere.position.x += 0.02 * Math.sin(Date.now() * 0.001 + idx);
-        sphere.position.y += 0.02 * Math.cos(Date.now() * 0.001 + idx);
-      });
+      // Pulsating effect for sphere
+      const scale = 1.5 + 0.2 * Math.sin(Date.now() * 0.0005);
+      sphere.scale.set(scale, scale, scale);
+      sphere.position.y = -1 + 0.5 * Math.sin(Date.now() * 0.0003);
 
-      rings.forEach((ring, idx) => {
-        ring.rotation.x += 0.005;
-        ring.rotation.y += 0.005;
-        ring.position.x += 0.002 * Math.sin(Date.now() * 0.001 + idx);
-      });
+      // Gentle oscillation for torus
+      torus.position.y = -3 + 0.3 * Math.sin(Date.now() * 0.0004);
+      torus.rotation.x += 0.003;
+      torus.rotation.y += 0.003;
 
+      // Subtle particle movement with fade effect
       const pos = particlesGeometry.attributes.position.array;
+      const op = particlesGeometry.attributes.opacity.array;
       for (let i = 0; i < particlesCount; i++) {
-        pos[i * 3 + 1] += 0.005 * (Math.random() - 0.5);
-        if (pos[i * 3 + 1] > 15) pos[i * 3 + 1] = -15;
+        pos[i * 3 + 1] += 0.002 * Math.sin(Date.now() * 0.0002 + i); // Slow vertical drift
+        if (pos[i * 3 + 1] > 10) pos[i * 3 + 1] = -10;
+        op[i] = 0.2 + 0.3 * Math.sin(Date.now() * 0.0005 + i); // Fade in/out
       }
       particlesGeometry.attributes.position.needsUpdate = true;
-
-      const gpos = glowParticlesGeometry.attributes.position.array;
-      for (let i = 0; i < glowCount; i++) {
-        gpos[i * 3 + 1] += 0.01;
-        if (gpos[i * 3 + 1] > 15) gpos[i * 3 + 1] = -15;
-      }
-      glowParticlesGeometry.attributes.position.needsUpdate = true;
-
-      movers.forEach(mover => {
-        mover.position.z += mover.userData.speed;
-        if (mover.position.z > 10) {
-          mover.position.z = -10;
-          mover.position.x = Math.random() * 20 - 10;
-          mover.position.y = Math.random() * 10 - 5;
-        }
-      });
+      particlesGeometry.attributes.opacity.needsUpdate = true;
 
       renderer.render(scene, camera);
     };
@@ -173,14 +140,10 @@ function Home() {
           cubeMaterial.dispose();
           sphereGeometry.dispose();
           sphereMaterial.dispose();
-          ringGeometry.dispose();
-          ringMaterial.dispose();
+          torusGeometry.dispose();
+          torusMaterial.dispose();
           particlesGeometry.dispose();
           particlesMaterial.dispose();
-          glowParticlesGeometry.dispose();
-          glowMaterial.dispose();
-          moverGeometry.dispose();
-          moverMaterial.dispose();
           while (scene.children.length > 0) {
             scene.remove(scene.children[0]);
           }
@@ -196,9 +159,8 @@ function Home() {
     <>
       <Navbar />
       <div
-        className="home"
+        className="home relative"
         id="image-container"
-        ref={mountRef}
         style={{
           background: 'linear-gradient(135deg, #000000, #333333)',
           width: '100%',
@@ -206,7 +168,55 @@ function Home() {
           position: 'relative',
           overflow: 'hidden'
         }}
-      ></div>
+      >
+        {/* Three.js Canvas Container */}
+        <div ref={mountRef} className="absolute inset-0 z-0" style={{ pointerEvents: 'none' }}></div>
+        {/* Hero Section (Slogan Overlay) */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
+          <div className="max-w-4xl mx-auto">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight"
+              style={{ fontFamily: '"Bebas Neue", cursive' }}
+              data-aos="zoom-in"
+            >
+              <span className="block">Innovate. Build. Succeed.</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mt-2">
+                Digital Excellence Unleashed
+              </span>
+            </h1>
+            <p
+              className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto"
+              style={{ fontFamily: '"Poppins", sans-serif' }}
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              We transform visionary ideas into powerful digital experiences that drive growth and innovation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full font-medium hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                style={{ fontFamily: '"Poppins", sans-serif' }}
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                Get Started
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <button
+                className="px-8 py-3 border-2 border-cyan-400 text-cyan-400 rounded-full font-medium hover:bg-cyan-400 hover:text-white transition-all duration-300 flex items-center justify-center"
+                style={{ fontFamily: '"Poppins", sans-serif' }}
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                <FaInfoCircle className="mr-2" />
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Home Section 1 */}
       <div className="home-section-1">
