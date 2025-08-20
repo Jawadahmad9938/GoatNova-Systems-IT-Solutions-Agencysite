@@ -14,7 +14,6 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Google fonts via next/font to prevent hydration issues
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas" });
 const francoisOne = Francois_One({ weight: "400", subsets: ["latin"], variable: "--font-francois" });
 const poppins = Poppins({ weight: ["100","200","300","400","500","600","700","800","900"], subsets: ["latin"], variable: "--font-poppins" });
