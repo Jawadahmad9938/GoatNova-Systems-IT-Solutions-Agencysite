@@ -55,7 +55,7 @@ export const metadata = {
     images: ["/og-image.jpg"], // 👉 same image as Open Graph
   },
   icons: {
-    icon: "/favicon.ico", // keep favicon inside /public
+    icon: "/icon.png", // keep favicon inside /public
   },
 };
 
