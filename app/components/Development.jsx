@@ -61,23 +61,6 @@ function Development() {
         </div>
       </div>
     </div>
-    <div className="row-home-section-2">
-      <div className="section-home-section-2" style={{ backgroundColor: '#000' }}>
-        <h2 data-aos = "fade-right">Generative AI</h2>
-        <div className='icons-container'>
-        <i data-aos = "zoom-in"><FaUsers /></i>
-        <i data-aos = "zoom-in"><FaCode /></i>
-        </div>
-      </div>
-      <div className="section-home-section-2" style={{ backgroundColor: '#111' }}>
-        <h2 data-aos = "fade-right">Digital Marketing</h2>
-        <div className='icons-container'>
-        <i data-aos = "zoom-in"><FaBitcoin /></i>
-        <i data-aos = "zoom-in"><FaCoins /></i>
-        <i data-aos = "zoom-in"><FaEthereum /></i>
-        </div>
-      </div>
-    </div>
     <div className="button-container-home-section-2" data-aos = "fade-right">
       <a href="#">See our Full Stack</a>
     </div>

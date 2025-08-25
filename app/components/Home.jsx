@@ -242,11 +242,11 @@ function Home() {
               { src: "/11_1.svg", alt: "BIG GREEN DAO Logo" },
               { src: "/3.jpg", alt: "MARAH NATURAL Logo" },
               { src: "/4.jpg", alt: "VMWARE Logo" },
-              { src: "/5.jpg", alt: "DELL Logo" },
-              { src: "/6.jpg", alt: "HITACHI Logo" },
-              { src: "/7.png", alt: "AUTOMATION ANYWHERE Logo" },
-              { src: "/8.jpg", alt: "NATERA Logo" },
-              { src: "/9.jpg", alt: "VAHDAM INDIA Logo" },
+              // { src: "/5.jpg", alt: "DELL Logo" },
+              // { src: "/6.jpg", alt: "HITACHI Logo" },
+              // { src: "/7.png", alt: "AUTOMATION ANYWHERE Logo" },
+              // { src: "/8.jpg", alt: "NATERA Logo" },
+              // { src: "/9.jpg", alt: "VAHDAM INDIA Logo" },
               { src: "/10.jpg", alt: "USHUR Logo" },
             ].map((img, i) => (
               <div key={i} className="grid-item-home-section-1" data-aos="zoom-in">
@@ -320,9 +320,9 @@ function Home() {
             <div className="tech-item-stack"><BsBrowserChrome /><p>Web</p></div>
             <div className="tech-item-stack"><FaApple /><p>iOS</p></div>
             <div className="tech-item-stack"><IoLogoAndroid /><p>Android</p></div>
-            <div className="tech-item-stack"><BsSmartwatch /><p>Wearables</p></div>
-            <div className="tech-item-stack"><FaCloudDownloadAlt /><p>CloudOps</p></div>
-            <div className="tech-item-stack"><FaShieldAlt /><p>IT Security</p></div>
+            <div className="tech-item-stack"><BsSmartwatch /><p>AI/ML</p></div>
+            <div className="tech-item-stack"><FaCloudDownloadAlt /><p>IoT</p></div>
+            <div className="tech-item-stack"><FaShieldAlt /><p>Data Analytics</p></div>
           </div>
           <div className="button-container-stack"><a href="#">See our Tech Stack</a></div>
         </div>
