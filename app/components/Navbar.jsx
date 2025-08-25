@@ -52,7 +52,7 @@ const Navbar = () => {
     {
       title: "Resources",
       dropdown: [
-        { name: "Blog", link: "" },
+        { name: "Blog", link: "/blog" },
         { name: "Case Studies", link: "" },
         { name: "Whitepapers", link: "" },
         { name: "Webinars", link: "" },
