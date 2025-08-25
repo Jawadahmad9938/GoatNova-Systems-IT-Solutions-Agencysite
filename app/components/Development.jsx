@@ -25,7 +25,7 @@ function Development() {
         </div>
       </div>
       <div className="section-home-section-2" style={{ backgroundColor: '#000' }}>
-        <h2 data-aos = "fade-right">Digital Marketing</h2>
+        <h2 data-aos = "fade-right">Data Analytics</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaGoogle /></i>
         <i data-aos = "zoom-in" ><FaChartLine /></i>
@@ -37,7 +37,7 @@ function Development() {
     </div>
     <div className="row-home-section-2">
       <div className="section-home-section-2" style={{ backgroundColor: '#111' }}>
-        <h2 data-aos = "fade-right">Website ADA Compliance</h2>
+        <h2 data-aos = "fade-right">Internet of Things (IoT)</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaUniversalAccess /></i>
         <i data-aos = "zoom-in"><FaWaveSquare /></i>
@@ -45,7 +45,7 @@ function Development() {
         </div>
       </div>
       <div className="section-home-section-2" style={{ backgroundColor: '#000' }}>
-        <h2 data-aos = "fade-right">Cloud Infrastructure</h2>
+        <h2 data-aos = "fade-right">Artificial Intelligence (AI)</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaAws /></i>
         <i data-aos = "zoom-in"><FaGoogle /></i>
@@ -53,7 +53,7 @@ function Development() {
         </div>
       </div>
       <div className="section-home-section-2" style={{ backgroundColor: '#111' }}>
-        <h2 data-aos = "fade-right">IT Security</h2>
+        <h2 data-aos = "fade-right">Machine Learning</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaCloudflare /></i>
         <i data-aos = "zoom-in"><FaShieldAlt /></i>
@@ -63,14 +63,14 @@ function Development() {
     </div>
     <div className="row-home-section-2">
       <div className="section-home-section-2" style={{ backgroundColor: '#000' }}>
-        <h2 data-aos = "fade-right">Remote Technology Staffing</h2>
+        <h2 data-aos = "fade-right">Generative AI</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaUsers /></i>
         <i data-aos = "zoom-in"><FaCode /></i>
         </div>
       </div>
       <div className="section-home-section-2" style={{ backgroundColor: '#111' }}>
-        <h2 data-aos = "fade-right">Blockchain Technology Services</h2>
+        <h2 data-aos = "fade-right">Digital Marketing</h2>
         <div className='icons-container'>
         <i data-aos = "zoom-in"><FaBitcoin /></i>
         <i data-aos = "zoom-in"><FaCoins /></i>
